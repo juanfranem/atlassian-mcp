@@ -96,7 +96,7 @@ describe('cursor provider', () => {
       const content = JSON.parse(await readFile(join(dir, '.cursor', 'mcp.json'), 'utf-8')) as {
         mcpServers: Record<string, McpServerEntry>;
       };
-      expect(content.mcpServers?.['atlassian']?.args).toContain('atlassian-mcp');
+      expect(content.mcpServers?.['atlassian']?.args).toContain('@juanfranem/atlassian-mcp');
     } finally {
       process.cwd = originalCwd;
     }
