@@ -7,7 +7,7 @@ const SECTION_HEADER = '## Atlassian MCP Tools';
 
 const SECTION_CONTENT = `## Atlassian MCP Tools
 
-This project uses [atlassian-mcp](https://www.npmjs.com/package/atlassian-mcp) to access Jira and Confluence.
+This project uses [@juanfranem/atlassian-mcp](https://www.npmjs.com/package/@juanfranem/atlassian-mcp) to access Jira and Confluence.
 
 ### Jira tools
 - **jira_search** — search issues with JQL (params: \`jql\`, \`limit\`, \`startAt\`)

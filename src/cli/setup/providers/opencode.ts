@@ -16,7 +16,7 @@ export async function configure(entry: McpServerEntry, scope: Scope): Promise<st
   const config: OpenCodeFormat = existing ?? {};
   const ocEntry: OpenCodeEntry = {
     type: 'local',
-    command: ['npx', '-y', 'atlassian-mcp'],
+    command: ['npx', '-y', '@juanfranem/atlassian-mcp'],
     enabled: true,
     environment: entry.env,
   };

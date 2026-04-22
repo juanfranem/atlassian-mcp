@@ -31,7 +31,7 @@ export async function writeJsonFile(filePath: string, data: unknown): Promise<vo
 export function buildMcpEntry(envBlock: EnvBlock): McpServerEntry {
   return {
     command: 'npx',
-    args: ['-y', 'atlassian-mcp'],
+    args: ['-y', '@juanfranem/atlassian-mcp'],
     env: envBlock,
   };
 }

@@ -1,6 +1,6 @@
 {
-  "name": "atlassian-mcp",
-  "version": "0.1.0",
+  "name": "@juanfranem/atlassian-mcp",
+  "version": "0.0.1",
   "description": "MCP server for Atlassian (Jira & Confluence) — read-only, TypeScript",
   "type": "module",
   "main": "dist/index.js",

@@ -35,7 +35,7 @@ export async function configure(entry: McpServerEntry, scope: Scope): Promise<st
   const mcpServers = (parsed['mcp_servers'] ?? {}) as Record<string, unknown>;
   mcpServers['atlassian'] = {
     command: 'npx',
-    args: ['-y', 'atlassian-mcp'],
+    args: ['-y', '@juanfranem/atlassian-mcp'],
     env: entry.env,
   };
   parsed['mcp_servers'] = mcpServers;
