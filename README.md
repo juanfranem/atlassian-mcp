@@ -4,16 +4,23 @@ A **read-only** [Model Context Protocol (MCP)](https://modelcontextprotocol.io) 
 
 Expose your Jira issues and Confluence pages directly to any MCP-compatible AI client — Claude Desktop, Cursor, Windsurf, and more.
 
+[![npm](https://img.shields.io/npm/v/@juanfranem/atlassian-mcp)](https://www.npmjs.com/package/@juanfranem/atlassian-mcp)
+
 ---
 
 ## Quick Start
 
-### 1. Get your API token
+### Option A — Interactive setup wizard (recommended)
 
-- **Atlassian Cloud**: [id.atlassian.com/manage-profile/security/api-tokens](https://id.atlassian.com/manage-profile/security/api-tokens)
-- **Jira/Confluence Server/DC**: Create a Personal Access Token in your profile settings
+Run the setup wizard via `npx` — no install required:
 
-### 2. Configure your MCP client
+```bash
+npx @juanfranem/atlassian-mcp setup
+```
+
+The wizard will ask for your Jira/Confluence URLs and credentials, then automatically write the correct config file for your AI client (Claude Desktop, Claude Code, Cursor, VS Code, Windsurf, OpenCode, or Codex CLI).
+
+### Option B — Manual config
 
 Add this to your client's MCP config file (e.g. `claude_desktop_config.json`):
 
@@ -21,8 +28,8 @@ Add this to your client's MCP config file (e.g. `claude_desktop_config.json`):
 {
   "mcpServers": {
     "atlassian": {
-      "command": "node",
-      "args": ["/absolute/path/to/atlassian/dist/index.js"],
+      "command": "npx",
+      "args": ["-y", "@juanfranem/atlassian-mcp"],
       "env": {
         "JIRA_URL": "https://your-company.atlassian.net",
         "JIRA_USERNAME": "your.email@company.com",
@@ -38,22 +45,7 @@ Add this to your client's MCP config file (e.g. `claude_desktop_config.json`):
 
 > You can configure only Jira, only Confluence, or both — whichever env vars are present determine which tools are registered.
 
-### 3. Build and start using it
-
-```bash
-# Clone and install
-git clone https://github.com/your-org/atlassian-mcp
-cd atlassian-mcp
-npm install
-
-# Build
-npm run build
-
-# Or run directly without building (for development)
-npm run dev
-```
-
-Then restart your MCP client and start asking questions like:
+Restart your MCP client and start asking questions like:
 
 - *"Show me all open bugs in the PROJ project"*
 - *"Find the deployment guide in Confluence"*

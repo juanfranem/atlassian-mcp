@@ -12,52 +12,32 @@
 
 ---
 
-## Option 1: Build from source
+## Option 1: Setup wizard via npx (recommended)
+
+No install or clone needed. Run:
 
 ```bash
-# Clone the repository
-git clone https://github.com/your-org/atlassian-mcp
-cd atlassian-mcp
-
-# Install dependencies
-npm install
-
-# Build
-npm run build
+npx @juanfranem/atlassian-mcp setup
 ```
 
-The compiled output is placed in `dist/`. The entry point is `dist/index.js`.
-
-Configure your MCP client:
-
-```json
-{
-  "mcpServers": {
-    "atlassian": {
-      "command": "node",
-      "args": ["/absolute/path/to/atlassian/dist/index.js"],
-      "env": {
-        "JIRA_URL": "https://your-company.atlassian.net",
-        "JIRA_USERNAME": "your.email@company.com",
-        "JIRA_API_TOKEN": "your_api_token"
-      }
-    }
-  }
-}
-```
+The wizard will:
+1. Ask which services to configure (Jira, Confluence, or both)
+2. Ask for your instance URL and credentials
+3. Ask which AI client to configure (Claude Desktop, Claude Code, Cursor, VS Code, Windsurf, OpenCode, Codex CLI, or print JSON for manual use)
+4. Write the correct config file automatically
 
 ---
 
-## Option 2: Run without building (development)
+## Option 2: Manual config (npx)
 
-Use `tsx` to run TypeScript directly — no build step required:
+Add this to your client's MCP config file. No local install required — `npx` fetches the package on first run:
 
 ```json
 {
   "mcpServers": {
     "atlassian": {
       "command": "npx",
-      "args": ["tsx", "/absolute/path/to/atlassian/src/index.ts"],
+      "args": ["-y", "@juanfranem/atlassian-mcp"],
       "env": {
         "JIRA_URL": "https://your-company.atlassian.net",
         "JIRA_USERNAME": "your.email@company.com",
@@ -67,8 +47,6 @@ Use `tsx` to run TypeScript directly — no build step required:
   }
 }
 ```
-
-> This is slower to start but requires no manual rebuild after code changes.
 
 ---
 
@@ -100,8 +78,8 @@ Config file location:
 {
   "mcpServers": {
     "atlassian": {
-      "command": "node",
-      "args": ["/absolute/path/to/atlassian/dist/index.js"],
+      "command": "npx",
+      "args": ["-y", "@juanfranem/atlassian-mcp"],
       "env": {
         "JIRA_URL": "https://your-company.atlassian.net",
         "JIRA_USERNAME": "your.email@company.com",
@@ -123,8 +101,8 @@ Config file: `~/.cursor/mcp.json`
 {
   "mcpServers": {
     "atlassian": {
-      "command": "node",
-      "args": ["/absolute/path/to/atlassian/dist/index.js"],
+      "command": "npx",
+      "args": ["-y", "@juanfranem/atlassian-mcp"],
       "env": {
         "JIRA_URL": "https://your-company.atlassian.net",
         "JIRA_USERNAME": "your.email@company.com",
